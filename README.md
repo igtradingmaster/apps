@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -66,6 +66,11 @@
 </head>
 <body>
 
+<div class="container text-center splash-screen active">
+    <img src="https://cdn.create.vista.com/api/media/small/411026842/stock-vector-logo-design-white-letter-letter-logo-design-initial-letter-linked">
+    <h2>VB APP</h2>
+    <p>Loading...</p>
+</div>
 
 <div class="container text-center password-input">
     <h2>Create Password</h2>
@@ -147,18 +152,20 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             popup.style.display = 'none';
             if (popup === successPopup) {
-                window.location.href = "secondpage.html"; // Replace with your second page URL
+                window.location.href = "https://igtradingmaster.github.io/Home/"; // Replace with your second page URL
             }
-        }, 5000);
+        }, 3000);
     }
 
-    setTimeout(() => {
-        const storedPassword = localStorage.getItem('password');
-        if (storedPassword) {
-            showSection(enterPasswordSection);
-        } else {
-            showSection(passwordInputSection);
-        }
+    // Show the appropriate section immediately
+    const storedPassword = localStorage.getItem('password');
+    if (storedPassword) {
+        showSection(enterPasswordSection);
+    } else {
+        showSection(passwordInputSection);
+    }
+    splashScreen.style.display = 'none';
+
     function clearPasswordInputs() {
         passwordInput.value = "";
         confirmPasswordInput.value = "";
